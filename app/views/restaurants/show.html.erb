@@ -1,0 +1,6 @@
+<h1>Selected Restaurant</h1>
+<li>Name : <%= @restaurant.name %></li>
+<li>Address : <%= @restaurant.address %></li>
+<li>Phone Number : <%= @restaurant.phone_number %></li>
+<li>Category : <%= @restaurant.category %></li>
+<%= link_to "Return to Restaurant List", restaurants_path(@restaurant) %>
