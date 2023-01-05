@@ -3,4 +3,21 @@
 <li>Address : <%= @restaurant.address %></li>
 <li>Phone Number : <%= @restaurant.phone_number %></li>
 <li>Category : <%= @restaurant.category %></li>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">Content : <%= review.content %></li>
+    <li class="list-group-item">Rating : <%= review.rating %></li>
+  <% end %>
+</ul>
+
+<%# créer formulaire pour créer une review %>
+<p><strong>Review Form</strong></p>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+
 <%= link_to "Return to Restaurant List", restaurants_path(@restaurant) %>
